@@ -1,0 +1,37 @@
+version: '1'
+services:
+  cont1:
+    image: image
+    tty: true
+    container_name: cont1
+    command: ["/bin/bash"]
+    networks:
+      - subnet1
+
+  cont2:
+    image: image
+    tty: true
+    container_name: cont2
+    networks:
+      - subnet1
+
+  cont3:
+    image: image
+    tty: true
+    container_name: cont3
+    networks:
+      - subnet1
+
+  cont4:
+    image: image
+    tty: true
+    container_name: cont4
+    networks:
+      - subnet1
+networks:
+  subnet1:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.1.0.0/16
