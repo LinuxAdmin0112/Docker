@@ -1,0 +1,12 @@
+FROM ubuntu
+LABEL name="Ramesh server"
+MAINTAINER name="MechMan"
+COPY file /root/
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/neogym.zip /root/
+RUN apt-get update
+RUN apt update -y
+RUN apt install apache2 -y
+RUN service apache2 start
+WORKDIR /root/
+EXPOSE 80
+ENTRYPOINT service apache2 restart && bash
